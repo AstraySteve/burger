@@ -1,7 +1,7 @@
 var connection = require("./connections");
 
 //object for sql statement
-Orm =(tablename)=>{
+function Orm(tablename){
     this.connection = connection;
     this.tablename = tablename;
 
