@@ -6,6 +6,7 @@ class Orm{
         this.connection = connection;
         this.tableName = tableName;
     }
+    
     selectAll(cb){
         //Select all from database
         var query = `SELECT * FROM ${this.tableName}`
