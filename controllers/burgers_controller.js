@@ -1,19 +1,34 @@
 var express = require('express');
-var burger = require('../models/burger');
-
 var router = express.Router();
+
+var burger = require('../models/burger');
 
 router.get('/',(req, res)=>{
     burger.selectAll((data)=>{
-        console.log(data); //Temp code
+        res.json(data);//temp code
     });
-    res.send("This is from the home contoller");
 });
 
-router.post("/api/burgers",(req,res)=>{
-    var newBurger = req.body
+router.post("/api/burgers",(req, res)=>{
+    var newBurger = req.body;
+    console.log(newBurger);
     burger.insertOne(newBurger, (data)=>{
-        console.log(data); //Temp code
+        //Temp Code
+        console.log(data);
+        res.json(true);
+    });
+});
+
+router.put("/api/burgers/:id", (req, res)=>{
+    var updateBurger ={
+        devoured: true,
+        id:req.params.id
+    }
+    console.log(req.params.id);
+    burger.updateOne(updateBurger, (data)=>{
+        //Temp Code
+        console.log(data);
+        res.json(true);
     });
 });
 

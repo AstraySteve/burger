@@ -2,13 +2,13 @@ var connection = require("./connections");
 
 //object constructor for sql statement
 class Orm{
-    constructor(tablename){
+    constructor(tableName){
         this.connection = connection;
-        this.tablename = tablename;
+        this.tableName = tableName;
     }
     selectAll(cb){
         //Select all from database
-        var query = `SELECT * FROM ${this.tablename}`
+        var query = `SELECT * FROM ${this.tableName}`
         this.connection.query(query,(err,data)=>{
             if(err){
                 throw err;
@@ -28,7 +28,7 @@ class Orm{
         var questionMarks = keys.map(x => "?")
         var query = `INSERT INTO ${this.tableName} (${keys}) VALUES (${questionMarks})`;
         
-        //console.log(query);
+        console.log(query);
         this.connection.query(query,values,(err,data)=>{
             if (err){
                 console.log(err);
@@ -51,10 +51,10 @@ class Orm{
                 return;
             }
             columns.push(`${x}=?`);
-            value.push(model[x]);
+            values.push(model[x]);
         });
-        value.push(id);
-        var query = `UPDATE ${this.tableName} SET ${column} WHERE id = ${id}`;
+        values.push(id);
+        var query = `UPDATE ${this.tableName} SET ${columns} WHERE id = ${id}`;
         
         //console.log(query);
         this.connection.query(query, values, (err,data)=>{

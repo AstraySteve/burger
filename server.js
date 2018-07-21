@@ -10,6 +10,8 @@ var handlebars = require('express-handlebars');
 
 var PORT = process.env.PORT || 8080;
 
+app.use(bodyParser.json());
+
 //handlebars
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 app.set('view engine','handlebars');
