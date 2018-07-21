@@ -7,9 +7,24 @@ h1{
     color: #ba2a00;
 }
 
-#mainHead{
-    text-align: center;
-}
-#burgerImg{
+.burgerImg{
     margin-top: 5vh;
+    position: relative;
+    width: 200px;
+}
+
+.textBlock{
+    background-color: white;
+    border: solid 2px lightgray;
+    min-width: 75%;
+    float: left;
+    padding: 5px 0;
+}
+
+.textBlock2{
+    background-color: lightgray;
+    border: solid 2px grey;
+    min-width: 50%;
+    padding: 5px 0;
+    margin: 0;
 }

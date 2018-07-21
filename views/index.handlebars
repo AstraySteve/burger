@@ -1,13 +1,14 @@
-<div class="container" id="mainHead">
+<div class="container mb-3">
+    <div class="row justify-content-center">
+        <div class="burgerImg">
+            <img src="assets/img/burger.png" class="img-fluid" alt="burger">
+        </div>
+    </div>
     <div class="row justify-content-center">
         <div class="col col-sm-4">
-            <div class="burgerImg">
-                <img src="assets/img/burger.png" class="img-fluid" alt="burger">
-            </div>
             <h1>Eat-Da-Burger!</h1>
             <input type="text" id="addBurger" class="form-control">
-            <br>
-            <button type="submit" class="btn btn-primary" id="getBurger">Submit</button>
+            <button type="submit" class="btn btn-primary mt-2" id="getBurger">Submit</button>
         </div>
     </div>
 </div>
@@ -15,18 +16,22 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h3>Menu</h3>
             {{#each burgerArray}}
-                <span>{{this.id}}. {{this.burger_name}}</span>
-                <button class="devour" data-num="{{this.id}}">Devour it!</button>
-                <br>
+                <div class="container m-1 p-1">
+                    <div class="textBlock">
+                        <span>{{this.id}}. {{this.burger_name}}</span>
+                    </div>
+                    <button class="devour" data-num="{{this.id}}">Devour it!</button>
+                </div>
             {{/each}}
         </div>
         <div class="col">
-            <h3>Devoured</h3>
             {{#each devouredArray}}
-                <span>{{this.id}}. {{this.burger_name}}</span>
-                <br>
+                <div class="container m-0 p-0">
+                    <div class="textBlock2">
+                        <span>{{this.id}}. {{this.burger_name}}</span>
+                    </div>
+                </div>
             {{/each}}
         </div>
     </div>

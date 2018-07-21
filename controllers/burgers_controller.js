@@ -35,7 +35,7 @@ router.get('/',(req, res)=>{
 
 router.post("/api/burgers",(req, res)=>{
     var newBurger = req.body;
-    console.log(newBurger);
+    //console.log(newBurger);
     burger.insertOne(newBurger, (data)=>{
         res.json(true);
     });
@@ -46,7 +46,7 @@ router.put("/api/burgers/:id", (req, res)=>{
         devoured: true,
         id:req.params.id
     }
-    console.log(req.params.id);
+    //console.log(req.params.id);
     burger.updateOne(updateBurger, (data)=>{
         res.json(true);
     });
