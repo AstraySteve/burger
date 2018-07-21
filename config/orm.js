@@ -28,11 +28,10 @@ class Orm{
         var questionMarks = keys.map(x => "?")
         var query = `INSERT INTO ${this.tableName} (${keys}) VALUES (${questionMarks})`;
         
-        console.log(query);
+        console.log(query); //debug code remove when done
         this.connection.query(query,values,(err,data)=>{
             if (err){
-                console.log(err);
-                return false;
+                throw err;
             }
             cb(data);
         })
@@ -56,7 +55,7 @@ class Orm{
         values.push(id);
         var query = `UPDATE ${this.tableName} SET ${columns} WHERE id = ${id}`;
         
-        //console.log(query);
+        console.log(query); //debug code remove when done
         this.connection.query(query, values, (err,data)=>{
             if(err){
                 throw err;
